@@ -1,0 +1,19 @@
+{% if models %}
+    {% load i18n %}
+        <div class="thadminjones--quickadd">
+            <span class="thadminjones--quickadd--title">
+            <i class="icon-plus">#</i>
+            {% trans "New" %}
+            </span>
+            <ol class="thadminjones--quickadd--modellist">
+                {% for model in models %}
+                <li class="thadminjones--quickadd--model">
+                    <a href="{{ model.url }}" class="thadminjones--quickadd--model--link">
+                        <i class="icon-angle-right">$</i>
+                        {{ model.name|capfirst }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+{% endif %}

@@ -1,0 +1,29 @@
+{% extends "admin/base.html" %}
+{% load thadminjones_helpers static %}
+
+{% block extrahead %}
+    {{ block.super }}
+    {% thadminjones_css %}
+{#    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">#}
+{#    <!--[if IE 7]>#}
+{#    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css" rel="stylesheet">#}
+{#    <![endif]-->#}
+{% endblock %}
+
+{% block messages %}
+    {{ block.super }}
+    {% thadminjones_applist %}
+{% endblock %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">
+        <i class="icon-home">!</i> {{ site_header|default:_('Django administration') }}
+    </a>
+</h1>
+{% thadminjones_quickadd %}
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
