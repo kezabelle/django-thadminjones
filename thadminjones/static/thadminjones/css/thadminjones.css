@@ -404,12 +404,13 @@ fieldset.collapsed h2,
 
 #changelist {
     border: 0;
+    background-color: white;
 }
 
 #changelist #toolbar {
     background: transparent;
     border: 0;
-    float: right;
+    /*float: right;*/
     margin: 0;
     clear: both;
 }
@@ -559,6 +560,7 @@ form .aligned p, form .aligned ul {
 }
 
 .button.default,
+#changelist .actions .button,
 input[type=submit].default,
 .submit-row input.default {
     -webkit-border-radius: 11px;
@@ -573,6 +575,7 @@ input[type=submit].default,
     background: -ms-linear-gradient(top, #298cba 0%,#21759b 80%); /* IE10+ */
     background: linear-gradient(to bottom, #298cba 0%,#21759b 80%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#298cba', endColorstr='#21759b',GradientType=0 ); /* IE6-9 */
+    color: white;
 }
 
 .button,
@@ -595,10 +598,24 @@ input[type=button],
 
 .change-list .filtered {
     min-height: 1em;
+    background: white !important;
 }
 
 #changelist .actions {
-    background: white;
+    background-color: #f1f1f1;
+    background-image: -ms-linear-gradient(top,#f9f9f9,#ececec);
+    background-image: -moz-linear-gradient(top,#f9f9f9,#ececec);
+    background-image: -o-linear-gradient(top,#f9f9f9,#ececec);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#f9f9f9),to(#ececec));
+    background-image: -webkit-linear-gradient(top,#f9f9f9,#ececec);
+    background-image: linear-gradient(top,#f9f9f9,#ececec);
+    border: 1px solid #dfdfdf;
+    border-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-right: 0 !important;
+    margin: 2em 0 0 0;
 }
 
 #changelist .actions .button {
@@ -623,9 +640,21 @@ fieldset.collapsed {
 .icon-list-alt {
     float: right;
     font-size: 130%;
+    padding-right: 0.4em;
 }
 
 .icon-angle-right {
     float: right;
     font-size: 120%;
+}
+
+.action-checkbox-column,
+.action-checkbox {
+    background: #ececec;
+    /*border: 0 !important;*/
+    padding: 1em;
+}
+
+.selected .action-checkbox {
+    background-color: #FFFFCC;
 }
