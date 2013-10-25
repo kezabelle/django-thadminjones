@@ -1,0 +1,13 @@
+{% load i18n %}
+<label for="thadminjones--filter--{{ title|slugify }}">
+    <h3>
+    {% blocktrans with filter_title=title|capfirst %}{{ filter_title }}{% endblocktrans %}
+    </h3>
+{#<div class="thadminjones--filters--wrap">#}
+<select id="thadminjones--filter--{{ title|slugify }}" onchange="window.location=this.options[this.selectedIndex].value;" class="thadminjones--filters">
+{% for choice in choices %}
+    <option {% if choice.selected %}selected="selected"{% endif %} value="{{ choice.query_string|iriencode }}">{{ choice.display }}</option>
+{% endfor %}
+</select>
+</label>
+{#</div>#}
