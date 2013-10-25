@@ -1,0 +1,22 @@
+{% load i18n %}
+{% if admin_log %}
+    <div class="thadminjones--recentactions">
+        <span class="thadminjones--recentactions--title" title="{% trans "Recent changes by me, excluding deletes" %}">
+        {% trans "Recently" %}
+        </span>
+        <ol class="thadminjones--recentactions--modellist">
+            {% for entry in admin_log %}
+            <li class="thadminjones--recentactions--model">
+                <a href="{{ entry.get_admin_url }}" class="thadminjones--recentactions--model--link {% if entry.content_type %}thadminjones--recentactions--contenttype--{% trans entry.content_type.name %}{% endif %}" title="{{ entry.change_message }}">
+                    {% if entry.content_type %}
+                    {% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}:
+                    {% else %}
+                    {% trans 'Unknown content' %}:
+                    {% endif %}
+                    {{ entry.object_repr }}
+                </a>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+{% endif %}

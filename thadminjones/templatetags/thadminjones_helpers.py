@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import logging
-from classytags.arguments import Argument
+from classytags.arguments import Argument, IntegerArgument
 from classytags.core import Options
 from classytags.helpers import AsTag, InclusionTag
 from django import template
+from django.contrib.admin.models import LogEntry, DELETION
 from django.contrib.staticfiles.finders import AppDirectoriesFinder
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.urlresolvers import resolve, reverse
@@ -113,3 +114,26 @@ class QuickAddList(InclusionTag):
             'path': request.path,
         }
 register.tag(QuickAddList)
+
+
+class RecentActions(InclusionTag):
+    name = 'thadminjones_recentactions'
+    template = 'thadminjones/recentactions.html'
+
+    options = Options(
+        IntegerArgument('maxnum', default=10, required=False, resolve=True),
+    )
+
+    def get_context(self, context, maxnum, **kwargs):
+        request = context['request']
+        if not hasattr(request, 'user'):
+            return {}
+        if not request.user.is_authenticated():
+            return {}
+        entries = (LogEntry.objects.filter(user__id__exact=request.user.pk)
+                   .exclude(action_flag=DELETION)
+                   .select_related('content_type', 'user'))
+        return {
+            'admin_log': entries[:maxnum],
+        }
+register.tag(RecentActions)

@@ -277,24 +277,40 @@ body.login #content {
     font-weight: bold;
 }
 
-.thadminjones--quickadd {
-    margin: 0 0 0 1em;
+.thadminjones--quickadd,
+.thadminjones--recentactions {
     list-style: none;
     position: relative;
     float: left;
     z-index: 99999;
-    border-left: 1px solid #555;
     border-right: 1px solid #555;
 }
 
-.thadminjones--quickadd--title {
-    border-left: 1px solid #333;
+.thadminjones--quickadd {
+    border-left: 1px solid #555;
+    margin: 0 0 0 1em;
+}
+
+.thadminjones--quickadd--title,
+.thadminjones--recentactions--title {
     border-right: 1px solid #333;
     padding: 0.5em 1em;
     display: block;
 }
 
-.thadminjones--quickadd--modellist {
+.thadminjones--quickadd--title {
+    border-left: 1px solid #333;
+}
+
+.thadminjones--recentactions--title {
+    color: #888;
+}
+.thadminjones--recentactions--title:hover {
+    color: #464646;
+}
+
+.thadminjones--quickadd--modellist,
+.thadminjones--recentactions--modellist {
     margin: 0 0 0 -1px;
     list-style: none;
     padding: 0;
@@ -305,29 +321,32 @@ body.login #content {
     display: none;
     position: absolute;
     float: none;
-    border-width: 0 1px 1px 1px;
-    border-style: solid;
-    border-color: #dfdfdf;
+    border: 1px solid #dfdfdf;
+    border-top: 0;
 }
 
-.thadminjones--quickadd:hover {
+.thadminjones--quickadd:hover,
+.thadminjones--recentactions:hover {
     background: white;
     color: #464646;
 
 }
 
-.thadminjones--quickadd:hover .thadminjones--quickadd--title {
+.thadminjones--quickadd:hover .thadminjones--quickadd--title,
+.thadminjones--recentactions:hover .thadminjones--recentactions--title {
     border-left: 1px solid white;
     border-right: 1px solid white;
     cursor: pointer;
 }
 
-.thadminjones--quickadd:hover .thadminjones--quickadd--modellist {
+.thadminjones--quickadd:hover .thadminjones--quickadd--modellist,
+.thadminjones--recentactions:hover .thadminjones--recentactions--modellist {
     display: block;
 }
 
 
-.thadminjones--quickadd--model--link {
+.thadminjones--quickadd--model--link,
+.thadminjones--recentactions--model--link {
     line-height: 1;
     padding: 0.75em 0.75em 0.75em 1em;
     text-shadow: none;
@@ -338,7 +357,8 @@ body.login #content {
     display: block;
 }
 
-.thadminjones--quickadd--model--link:hover {
+.thadminjones--quickadd--model--link:hover,
+.thadminjones--recentactions--model--link:hover {
     background-color: #eaf2fa;
     text-decoration: none !important;
 }
