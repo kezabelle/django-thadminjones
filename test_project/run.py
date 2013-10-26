@@ -9,8 +9,13 @@ sys.path.append(PARENT)
 
 d(
     SITE_ID=1,
+    LANGUAGES=[
+        ('en', 'English'),
+    ],
     INSTALLED_APPS=[
         "thadminjones",
+        "thadminjones.contrib.treeadmin",
+        "thadminjones.contrib.cms",
         "django.contrib.auth",
         "django.contrib.contenttypes",
         "django.contrib.staticfiles",
@@ -32,6 +37,10 @@ d(
         "django.contrib.auth.middleware.AuthenticationMiddleware",
         "django.contrib.messages.middleware.MessageMiddleware",
         "django.middleware.clickjacking.XFrameOptionsMiddleware",
+        'cms.middleware.page.CurrentPageMiddleware',
+        'cms.middleware.user.CurrentUserMiddleware',
+        'cms.middleware.toolbar.ToolbarMiddleware',
+        'cms.middleware.language.LanguageCookieMiddleware',
         "debug_toolbar.middleware.DebugToolbarMiddleware",
     ],
     INTERNAL_IPS=[
@@ -54,6 +63,11 @@ d(
         "django.core.context_processors.static",
         "django.core.context_processors.request",
         "django.contrib.auth.context_processors.auth",
+        'cms.context_processors.media',
+        'sekizai.context_processors.sekizai',
+    ],
+    CMS_TEMPLATES=[
+        ('cms_template.html', 'Template'),
     ],
     FIXTURE_DIRS=[HERE],
     STATIC_URL='/s/',
@@ -64,6 +78,8 @@ d(
 if __name__ == "__main__":
     if len(sys.argv) == 1:
         d.do("syncdb", "--noinput")
+        d.do('loaddata', 'initial_data.auth.json')
+        d.do('loaddata', 'initial_data.cms.json')
         d.do("runserver", "0.0.0.0:8080")
     else:
         d.main()

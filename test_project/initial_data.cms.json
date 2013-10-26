@@ -1,0 +1,160 @@
+[
+{
+    "pk": 1, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "base_content", 
+        "default_width": null
+    }
+},
+{
+    "pk": 2, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "base_content2", 
+        "default_width": null
+    }
+},
+{
+    "pk": 3, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "base_content", 
+        "default_width": null
+    }
+},
+{
+    "pk": 4, 
+    "model": "cms.placeholder", 
+    "fields": {
+        "slot": "base_content2", 
+        "default_width": null
+    }
+},
+{
+    "pk": 1, 
+    "model": "cms.page", 
+    "fields": {
+        "rght": 3, 
+        "navigation_extenders": "", 
+        "site": 1, 
+        "creation_date": "2013-10-26T22:43:18.203", 
+        "lft": 2, 
+        "in_navigation": false, 
+        "reverse_id": null, 
+        "login_required": false, 
+        "created_by": "admin", 
+        "publication_end_date": null, 
+        "template": "cms_template.html", 
+        "tree_id": 1, 
+        "placeholders": [
+            1, 
+            2
+        ], 
+        "changed_date": "2013-10-26T22:48:25.472", 
+        "limit_visibility_in_menu": null, 
+        "parent": 2, 
+        "publisher_state": 1, 
+        "soft_root": false, 
+        "publication_date": null, 
+        "publisher_public": null, 
+        "level": 1, 
+        "changed_by": "admin", 
+        "publisher_is_draft": true, 
+        "published": false
+    }
+},
+{
+    "pk": 2, 
+    "model": "cms.page", 
+    "fields": {
+        "rght": 4, 
+        "navigation_extenders": "", 
+        "site": 1, 
+        "creation_date": "2013-10-26T22:48:11.081", 
+        "lft": 1, 
+        "in_navigation": false, 
+        "reverse_id": null, 
+        "login_required": false, 
+        "created_by": "admin", 
+        "publication_end_date": null, 
+        "template": "cms_template.html", 
+        "tree_id": 1, 
+        "placeholders": [
+            3, 
+            4
+        ], 
+        "changed_date": "2013-10-26T22:48:19.955", 
+        "limit_visibility_in_menu": null, 
+        "parent": null, 
+        "publisher_state": 1, 
+        "soft_root": false, 
+        "publication_date": null, 
+        "publisher_public": null, 
+        "level": 0, 
+        "changed_by": "admin", 
+        "publisher_is_draft": true, 
+        "published": false
+    }
+},
+{
+    "pk": 1, 
+    "model": "cms.pagemoderatorstate", 
+    "fields": {
+        "action": "ADD", 
+        "message": "", 
+        "created": "2013-10-26T22:43:18.215", 
+        "page": 1, 
+        "user": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "cms.pagemoderatorstate", 
+    "fields": {
+        "action": "ADD", 
+        "message": "", 
+        "created": "2013-10-26T22:48:11.093", 
+        "page": 2, 
+        "user": 1
+    }
+},
+{
+    "pk": 1, 
+    "model": "cms.title", 
+    "fields": {
+        "menu_title": null, 
+        "redirect": null, 
+        "meta_keywords": null, 
+        "page_title": null, 
+        "language": "en", 
+        "title": "test", 
+        "has_url_overwrite": false, 
+        "application_urls": null, 
+        "creation_date": "2013-10-26T22:43:18.376", 
+        "page": 1, 
+        "path": "test2/test", 
+        "meta_description": null, 
+        "slug": "test"
+    }
+},
+{
+    "pk": 2, 
+    "model": "cms.title", 
+    "fields": {
+        "menu_title": null, 
+        "redirect": null, 
+        "meta_keywords": null, 
+        "page_title": null, 
+        "language": "en", 
+        "title": "test2", 
+        "has_url_overwrite": false, 
+        "application_urls": null, 
+        "creation_date": "2013-10-26T22:48:11.288", 
+        "page": 2, 
+        "path": "test2", 
+        "meta_description": null, 
+        "slug": "test2"
+    }
+}
+]
