@@ -1,0 +1,13 @@
+#open_entire_tree {
+    margin-right: 2em;
+}
+
+#collapse_entire_tree:after {
+    content: ',';
+}
+
+#collapse_entire_tree:hover,
+#open_entire_tree:hover {
+    border-bottom: 1px solid;
+    color: #21759b !important;
+}
