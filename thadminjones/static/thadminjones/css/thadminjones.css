@@ -498,6 +498,8 @@ fieldset.collapsed h2,
 #changelist .paginator {
     border: 0;
     background: white;
+    padding: 1em 0;
+    margin: 0;
 }
 
 #changelist-filter {
@@ -608,6 +610,7 @@ fieldset.collapsed h2,
     font-weight: bold;
 }
 
+.object-tools a.addlink:hover,
 .object-tools a.viewsitelink:hover,
 .object-tools a.golink:hover {
     border: 1px solid #298cba;
@@ -722,6 +725,8 @@ input[type=submit].default,
     color: white;
 }
 
+.paginator .this-page,
+.paginator a.showall,
 .button,
 input[type=submit],
 input[type=button],
@@ -732,6 +737,32 @@ input[type=button],
     color: #888;
     border: 1px solid #ddd;
     cursor: pointer;
+}
+
+
+.paginator a:link,
+.paginator a:visited {
+    border: 0;
+    background: white;
+    padding: 0.4em 0.3em !important;
+    color: #464646;
+}
+
+.paginator .this-page,
+.paginator a.showall,
+.paginator a.showall:hover {
+    background: white url('../../admin/img/nav-bg.gif') bottom repeat-x !important;
+    padding: 0.4em 0.75em !important;
+    border: 1px solid #ddd !important;
+    font-size: 11px;
+    font-weight: normal;
+    color: #21759b;
+}
+
+.paginator a:hover {
+    background: white;
+    color: #21759b;
+    border-bottom: 1px solid #21759b;
 }
 
 .change-list .filtered .results,
