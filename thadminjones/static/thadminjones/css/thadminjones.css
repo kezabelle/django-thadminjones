@@ -14,7 +14,7 @@
 .icon-plus,
 .icon-list-alt,
 .historylink:before,
-.addlink:before,
+.object-tools .addlink:before,
 .viewsitelink:after,
 .icon-angle-right {
   font-family: "fontello" !important;
@@ -48,7 +48,7 @@
 }
 
 .historylink:before { content: '\22'; margin-right: 0.3em; font-size: 110%; } /* '&quot;' */
-.addlink:before { content: '\23'; } /* '#' */
+.object-tools .addlink:before { content: '\23'; } /* '#' */
 .viewsitelink:after { content: '\24'; margin-left: 0.3em; } /* '$' */
 
 .headlines {
