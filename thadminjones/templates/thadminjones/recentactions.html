@@ -7,7 +7,7 @@
         <ol class="thadminjones--recentactions--modellist">
             {% for entry in admin_log %}
             <li class="thadminjones--recentactions--model">
-                <a href="{{ entry.get_admin_url }}" class="thadminjones--recentactions--model--link {% if entry.content_type %}thadminjones--recentactions--contenttype--{% trans entry.content_type.name %}{% endif %}" title="{{ entry.change_message }}">
+                <a href="{{ entry.get_absolute_url }}" class="thadminjones--recentactions--model--link {% if entry.content_type %}thadminjones--recentactions--contenttype--{% trans entry.content_type.name %}{% endif %}" title="{{ entry.change_message }}">
                     {% if entry.content_type %}
                     {% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}:
                     {% else %}

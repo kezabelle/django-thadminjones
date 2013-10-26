@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
+import re
 from classytags.arguments import Argument, IntegerArgument
 from classytags.core import Options
 from classytags.helpers import AsTag, InclusionTag
@@ -13,7 +14,7 @@ from django.utils.encoding import force_unicode
 
 register = template.Library()
 logger = logging.getLogger(__name__)
-
+multiple_slashes_re = re.compile('/{2,}')
 
 class FindMineralCSS(AsTag):
     name = 'thadminjones_css'
@@ -130,10 +131,25 @@ class RecentActions(InclusionTag):
             return {}
         if not request.user.is_authenticated():
             return {}
-        entries = (LogEntry.objects.filter(user__id__exact=request.user.pk)
-                   .exclude(action_flag=DELETION)
-                   .select_related('content_type', 'user'))
+
+        current_view = resolve(request.path)
+        root_url = reverse('%s:index' % current_view.app_name)
+
+        def get_log_entries(user_id, admin_root):
+            """
+            This exists because LogEntry has a stupid bloody get_absolute_url()
+            """
+            entries = (LogEntry.objects.filter(user__id__exact=user_id)
+                       .exclude(action_flag=DELETION)
+                       .select_related('content_type', 'user'))
+            for entry in entries:
+                real_url = '/%s/%s/' % (admin_root, entry.get_admin_url())
+                entry.get_absolute_url = re.sub(pattern=multiple_slashes_re,
+                                                repl='/', string=real_url)
+                yield entry
+
+        entries = get_log_entries(user_id=request.user.pk, admin_root=root_url)
         return {
-            'admin_log': entries[:maxnum],
+            'admin_log': list(entries)[:maxnum],
         }
 register.tag(RecentActions)
