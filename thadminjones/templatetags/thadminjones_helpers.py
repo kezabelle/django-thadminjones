@@ -135,21 +135,22 @@ class RecentActions(InclusionTag):
         current_view = resolve(request.path)
         root_url = reverse('%s:index' % current_view.app_name)
 
-        def get_log_entries(user_id, admin_root):
+        def get_log_entries(user_id, maxnum, admin_root):
             """
             This exists because LogEntry has a stupid bloody get_absolute_url()
             """
             entries = (LogEntry.objects.filter(user__id__exact=user_id)
                        .exclude(action_flag=DELETION)
                        .select_related('content_type', 'user'))
-            for entry in entries:
+            for entry in entries[:maxnum]:
                 real_url = '/%s/%s/' % (admin_root, entry.get_admin_url())
                 entry.get_absolute_url = re.sub(pattern=multiple_slashes_re,
                                                 repl='/', string=real_url)
                 yield entry
 
-        entries = get_log_entries(user_id=request.user.pk, admin_root=root_url)
+        entries = get_log_entries(user_id=request.user.pk, maxnum=maxnum,
+                                  admin_root=root_url)
         return {
-            'admin_log': list(entries)[:maxnum],
+            'admin_log': list(entries),
         }
 register.tag(RecentActions)
