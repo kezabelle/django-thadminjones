@@ -5,3 +5,9 @@ div#sitemap {
 #changelist-filter-button {
     display: none;
 }
+
+/* same as .form-row:hover for simplicity */
+#page_form .plugin-holder {
+    background: #f4f4f4;
+}
+
