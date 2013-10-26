@@ -13,8 +13,11 @@
 .icon-home,
 .icon-plus,
 .icon-list-alt,
+.historylink:before,
+.addlink:before,
+.viewsitelink:after,
 .icon-angle-right {
-  font-family: "fontello";
+  font-family: "fontello" !important;
   font-style: normal;
   font-weight: normal;
   speak: none;
@@ -44,6 +47,9 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
+.historylink:before { content: '\22'; margin-right: 0.3em; font-size: 110%; } /* '&quot;' */
+.addlink:before { content: '\23'; } /* '#' */
+.viewsitelink:after { content: '\24'; margin-left: 0.3em; } /* '$' */
 
 .headlines {
     font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
@@ -613,6 +619,10 @@ fieldset.collapsed h2,
     background: -ms-linear-gradient(top, #298cba 0%,#21759b 80%);
     background: linear-gradient(to bottom, #298cba 0%,#21759b 80%);
     color: white;
+}
+.object-tools a.viewsitelink:link,
+.object-tools a.viewsitelink:visited {
+    padding-right: 0.5em;
 }
 
 /* forms */
