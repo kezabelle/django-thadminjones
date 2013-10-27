@@ -12,6 +12,12 @@ d(
     LANGUAGES=[
         ('en', 'English'),
     ],
+    # DATABASES={
+    #     'default': {
+    #         'ENGINE': "django.db.backends.sqlite3",
+    #         'NAME': ':memory:',
+    #     }
+    # },
     INSTALLED_APPS=[
         "thadminjones",
         "thadminjones.contrib.treeadmin",
@@ -74,6 +80,55 @@ d(
     MEDIA_URL='/m/',
     admin="^",
 )
+
+from django.db.models import (Model, BigIntegerField, BooleanField, CharField,
+                              CommaSeparatedIntegerField, DateField,
+                              DateTimeField, DecimalField, EmailField, FileField,
+                              FilePathField, FloatField, ImageField,
+                              IPAddressField, GenericIPAddressField,
+                              NullBooleanField, PositiveIntegerField,
+                              PositiveSmallIntegerField, SlugField,
+                              SmallIntegerField, TextField, TimeField, URLField,
+                              ForeignKey, ManyToManyField, OneToOneField)
+from django.contrib import admin
+from thadminjones.admin import SupportsQuickAdd
+
+class TestModelFields(Model):
+    big_int = BigIntegerField()
+    yesno = BooleanField()
+    title = CharField(max_length=150)
+    csv_data = CommaSeparatedIntegerField(max_length=255)
+    when = DateField()
+    when_accurate = DateTimeField()
+    amount = DecimalField(decimal_places=4)
+    email = EmailField()
+    upload = FileField(upload_to='test')
+    path = FilePathField(path=HERE, recursive=False)
+    inaccurate = FloatField()
+    img = ImageField(upload_to='test')
+    ip = IPAddressField()
+    better_ip = GenericIPAddressField(protocol='both')
+    yesnomaybe = NullBooleanField(default=None)
+    posint = PositiveIntegerField()
+    small_posint = PositiveSmallIntegerField()
+    slug = SlugField()
+    small_int = SmallIntegerField()
+    content = TextField()
+    when_time = TimeField()
+    web_address = URLField()
+    user = ForeignKey('auth.User')
+    groups = ManyToManyField('auth.Group')
+    one_to_one = OneToOneField('auth.Permission')
+
+    class Meta:
+        app_label = 'testing'
+        verbose_name = 'test model fields'
+        verbose_name_plural = 'test model fields'
+
+
+class TestModelAdmin(SupportsQuickAdd, admin.ModelAdmin):
+    pass
+admin.site.register(TestModelFields, TestModelAdmin)
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
