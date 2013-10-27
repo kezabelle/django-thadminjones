@@ -140,6 +140,10 @@ body.login #content {
     margin: 0;
 }
 
+.dashboard #content-main .module th {
+    color: #bbb;
+}
+
 #header {
     background-color: #464646;
     background-image: -ms-linear-gradient(bottom,#373737,#464646 5px);
