@@ -175,11 +175,16 @@ body.login #content {
     float: left;
     margin: 0;
     font-size: 1em;
-    padding: 0.5em;
+    /*padding: 0.5em;*/
+    padding: 0;
+    border-right: 1px solid #333;
 }
 
 #branding #site-name a {
     text-decoration: none;
+    padding: 0.5em 1em 0.5em 0.5em;
+    display: block;
+    border-right: 1px solid #555;
 }
 
 #user-tools {
@@ -309,8 +314,9 @@ body.popup #thadminjones--fakedbackground2 {
 }
 
 .thadminjones--quickadd {
-    border-left: 1px solid #555;
-    margin: 0 0 0 1em;
+    /*border-left: 1px solid #555;*/
+    /*margin: 0 0 0 1em;*/
+    margin: 0;
 }
 
 .thadminjones--quickadd--title,
@@ -321,13 +327,13 @@ body.popup #thadminjones--fakedbackground2 {
 }
 
 .thadminjones--quickadd--title {
-    border-left: 1px solid #333;
+    /*border-left: 1px solid #333;*/
 }
 
 .thadminjones--recentactions--title {
     color: #888;
 }
-.thadminjones--recentactions--title:hover {
+.thadminjones--recentactions:hover .thadminjones--recentactions--title {
     color: #464646;
 }
 
@@ -356,7 +362,7 @@ body.popup #thadminjones--fakedbackground2 {
 
 .thadminjones--quickadd:hover .thadminjones--quickadd--title,
 .thadminjones--recentactions:hover .thadminjones--recentactions--title {
-    border-left: 1px solid white;
+    /*border-left: 1px solid white;*/
     border-right: 1px solid white;
     cursor: pointer;
 }
