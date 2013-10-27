@@ -795,7 +795,8 @@ input[type=button],
 }
 
 #changelist .actions {
-    background-color: #f1f1f1;
+    background-position: 0 0;
+    background-color: #f9f9f9;
     background-image: -ms-linear-gradient(top,#f9f9f9,#ececec);
     background-image: -moz-linear-gradient(top,#f9f9f9,#ececec);
     background-image: -o-linear-gradient(top,#f9f9f9,#ececec);
