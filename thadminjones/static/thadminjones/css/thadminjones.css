@@ -460,6 +460,10 @@ body.popup #content {
     padding: 1em 0 0 0;
 }
 
+body.popup #content h1 {
+    padding-top: 0;
+}
+
 .row1 {
     background-color: #eaf2fa;
 }
