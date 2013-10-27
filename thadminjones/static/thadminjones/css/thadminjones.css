@@ -719,6 +719,10 @@ a.deletelink:link, a.deletelink:visited {
     color: #666;
 }
 
+.form-row .datetime {
+    margin-left: 7em;
+}
+
 .form-row:hover label.required ~ .help,
 .form-row:hover label.required {
     color: #21759b !important;
@@ -894,3 +898,6 @@ fieldset.collapsed {
     display: none;
 }
 
+.clockbox {
+    border-left-color: #ccc;
+}
