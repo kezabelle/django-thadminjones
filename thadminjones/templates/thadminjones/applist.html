@@ -13,13 +13,22 @@
         <ol class="thadminjones--apps--models">
         {% for model in app.models %}
             <li class="thadminjones--{% if model.admin_url in path %}ancestry{% else %}sibling{% endif %}">
+                {% if model.admin_url %}
+                    <a href="{{ model.admin_url }}" class="thadminjones--apps--models--link">
+                {% else %}
+                    <span class="thadminjones--apps--models--link thadminjones--apps--models--notarget">
+                {% endif %}
+
+                {{ model.name }}
+
                 {% if model.admin_url in path %}
                 <i class="icon-angle-right">$</i>
                 {% endif %}
+
                 {% if model.admin_url %}
-                <a href="{{ model.admin_url }}" class="thadminjones--apps--models--link">{{ model.name }}</a>
+                    </a>
                 {% else %}
-                {{ model.name }}
+                    </span>
                 {% endif %}
             </li>
         {% endfor %}
