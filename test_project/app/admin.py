@@ -20,6 +20,30 @@ class TestModelAdmin(SupportsQuickAdd, admin.ModelAdmin):
         TestStackedInline,
         TestTabularInline,
     ]
+    fieldsets = [
+        (None, {'fields': [
+            'big_int',
+            'yesno',
+            ('title', 'csv_data'),
+            ('when', 'when_accurate'),
+            ('amount', 'email'),
+            'upload', 'path', 'inaccurate',
+        ]}),
+        ("More fields", {'fields': [
+            'img',
+            'ip',
+            'better_ip',
+            ('yesnomaybe', 'posint', 'small_posint'),
+            'slug',
+            'small_int',
+            'content',
+            'when_time',
+            'web_address',
+            'user',
+            'groups',
+            'one_to_one']
+        })
+    ]
 admin.site.register(TestModelFields, TestModelAdmin)
 
 

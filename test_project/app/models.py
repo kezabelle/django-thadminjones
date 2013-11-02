@@ -22,7 +22,7 @@ class TestModelFields(Model):
     amount = DecimalField(max_digits=8, decimal_places=4)
     email = EmailField()
     upload = FileField(upload_to='test')
-    path = FilePathField(path=d.APP_DIR, recursive=False)
+    path = FilePathField(path=d.APP_DIR, recursive=False, match=".json$")
     inaccurate = FloatField()
     img = ImageField(upload_to='test')
     ip = IPAddressField()
