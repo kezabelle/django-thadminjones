@@ -16,6 +16,7 @@ register = template.Library()
 logger = logging.getLogger(__name__)
 multiple_slashes_re = re.compile('/{2,}')
 
+
 class FindMineralCSS(AsTag):
     name = 'thadminjones_css'
     options = Options(
@@ -75,7 +76,8 @@ class QuickAddList(InclusionTag):
         for model, model_admin in admin_site._registry.items():
             if not hasattr(model_admin, 'has_quick_add_permission'):
                 logger.debug(
-                    "{cls!r} doesn't have `has_quick_add_permission`".format(cls=model_admin)
+                    "{cls!r} doesn't have "
+                    "`has_quick_add_permission`".format(cls=model_admin)
                 )
                 continue
 
