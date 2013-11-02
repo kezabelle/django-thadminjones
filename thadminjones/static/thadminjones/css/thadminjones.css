@@ -16,6 +16,8 @@
 .historylink:before,
 .object-tools .addlink:before,
 .viewsitelink:after,
+.publishlink:after,
+.previewdraftlink:after,
 .icon-angle-right {
   font-family: "fontello" !important;
   font-style: normal;
@@ -49,6 +51,8 @@
 
 .historylink:before { content: '\22'; margin-right: 0.3em; font-size: 110%; } /* '&quot;' */
 .object-tools .addlink:before { content: '\23'; } /* '#' */
+.publishlink:after,
+.previewdraftlink:after,
 .viewsitelink:after { content: '\24'; margin-left: 0.3em; } /* '$' */
 
 .headlines {
@@ -73,7 +77,7 @@ body.logout #container {
 }
 
 body.logout #footer,
-body.logout br.clear {
+body.login #footer {
     display: none;
 }
 
@@ -156,6 +160,8 @@ body.login .submit-row input {
 body.login .submit-row {
     padding: 0;
     overflow: hidden;
+    position: static;
+    border: 0;
 }
 
 body.login #content {
@@ -242,6 +248,8 @@ body.popup #thadminjones--fakedbackground,
 body.popup #thadminjones--fakedbackground2 {
     display: none;
 }
+
+
 
 .thadminjones--apps {
     margin: 0;
@@ -490,7 +498,8 @@ body.popup #content h1 {
     background-color: #eaf2fa;
 }
 
-.module {
+.module,
+.inline-group {
     border-color: #dfdfdf;
     background-color: #f9f9f9;
     -webkit-border-radius: 3px;
@@ -924,3 +933,4 @@ fieldset.collapsed {
 .clockbox {
     border-left-color: #ccc;
 }
+
