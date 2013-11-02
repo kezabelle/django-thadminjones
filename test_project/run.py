@@ -35,7 +35,8 @@ d(
         "sekizai",
         "cms.plugins.twitter",
         "debug_toolbar",
-        'app',
+        "django_pdb",
+        "app",
     ],
     MIDDLEWARE_CLASSES=[
         "django.middleware.common.CommonMiddleware",
@@ -82,6 +83,8 @@ d(
     admin="^",
 )
 
+from django.template.loader import add_to_builtins
+add_to_builtins('django_pdb.templatetags.pdb')
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
