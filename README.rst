@@ -1,6 +1,6 @@
-=============
-Thadmin Jones
-=============
+===================
+Thadmin Jones 0.1.0
+===================
 
 `thadminjones` is a package for the `Django`_ `admin`_ backend, implementing
 a new theme, reminiscent of the `Wordpress`_ administration.
