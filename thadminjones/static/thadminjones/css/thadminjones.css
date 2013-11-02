@@ -511,6 +511,7 @@ body.popup #content h1 {
 /* app indexes */
 .module caption,
 fieldset.collapsed h2,
+.inline-group h2,
 .module h2 {
     background-color: #f1f1f1;
     background-image: -ms-linear-gradient(top,#f9f9f9,#ececec);
