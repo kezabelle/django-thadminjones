@@ -68,11 +68,11 @@ body.login {
     background-color: #fbfbfb;
 }
 
-body.login #branding h1 {
-    color: #777;
-    background: white;
-    padding: 0;
-}
+/*body.login #branding h1 {*/
+    /*color: #777;*/
+    /*background: white;*/
+    /*padding: 0;*/
+/*}*/
 
 body.login #container {
     padding: 26px 24px 24px;
@@ -89,6 +89,10 @@ body.login #container {
 body.login .form-row {
     margin: 0 auto;
     padding: 0;
+}
+
+body.login .form-row:hover {
+    background-color: white;
 }
 
 body.login .form-row input {
