@@ -972,7 +972,7 @@ fieldset.collapsed {
 
 /* is more like bootstrap ... */
 .errornote {
-    background: #fdf7f7;
+    background: #FFE9E9;
     border: 0;
     border-left: 3px solid #eed3d7;
     padding: 1em;
@@ -980,4 +980,67 @@ fieldset.collapsed {
     font-size: 1.4em;
     margin-bottom: 0.833em;
     font-weight: bold;
+}
+
+/*.errors {*/
+    /*background: #FFE9E9;*/
+    /*border-bottom: 1px solid #eed3d7;*/
+    /*background: #f9f9f9;*/
+    /*border-color: #dfdfdf;*/
+    /*border-left: 3px solid #eed3d7;*/
+    /*padding-left: 9px; *//* default is 12px, minus the border */
+/*}*/
+
+.form-row.errors {
+    /*background: #FFE9E9;*/
+    /*border-bottom: 1px solid #eed3d7;*/
+    background: #f9f9f9;
+    border-bottom: 1px solid #dfdfdf;
+    /*border-left: 3px solid #eed3d7;*/
+    /*padding-left: 9px; *//* default is 12px, minus the border */
+}
+
+.field-box.errors {
+    background: #f9f9f9;
+}
+
+
+.errorlist li {
+    background: #eed3d7;
+    border: 0;
+    color: #b94a48;
+    padding: 0.4em;
+    display: inline-block;
+}
+
+.errors input,
+.errors select,
+.errors textarea {
+    border-color: #eed3d7;
+}
+
+.errors input[type="file"] {
+    border-color: #f9f9f9;
+}
+
+ul.messagelist {
+    position: relative;
+    margin-left: 145px;
+    top: 2.25em;
+}
+
+ul.messagelist li {
+    color: #9d7e24;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+ul.messagelist li.error {
+    background-color: #eed3d7;
+    color: #b94a48;
+}
+
+ul.messagelist li.success {
+    background-color: #dff0d8;
+    color: #005600;
 }

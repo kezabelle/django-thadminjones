@@ -11,8 +11,8 @@
 {% endblock %}
 
 {% block messages %}
-    {{ block.super }}
     {% thadminjones_applist %}
+    {{ block.super }}
 {% endblock %}
 
 {% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
