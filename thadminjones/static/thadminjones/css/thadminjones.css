@@ -62,6 +62,7 @@
 label {
     cursor: pointer;
     vertical-align: middle;
+    white-space: pre-wrap;
 }
 
 a:link, a:visited {
@@ -508,6 +509,11 @@ body.popup #content h1 {
     margin: 0 0 1.25em 0;
 }
 
+.inline-related fieldset {
+    border-color: #dfdfdf;
+    background-color: #f9f9f9;
+}
+
 /* app indexes */
 .module caption,
 fieldset.collapsed h2,
@@ -744,7 +750,7 @@ a.deletelink:link, a.deletelink:visited {
 }
 
 .form-row:hover {
-    background-color: #f4f4f4;
+    background-color: #f6f6f6;
 }
 
 .form-row:hover .help {
@@ -769,6 +775,11 @@ label {
 label.required:hover {
     color: #666 !important;
 }
+
+/*.required label:after, label.required:after {*/
+    /*content: " *";*/
+    /*color: #c00;*/
+/*}*/
 
 .help, p.help {
     font-size: 12px !important;
@@ -803,7 +814,10 @@ input[type=submit].default,
 .button,
 input[type=submit],
 input[type=button],
-.submit-row input {
+.submit-row input,
+.inline-group ul.tools a.add,
+.inline-group div.add-row a,
+.inline-group .tabular tr.add-row td a {
     -webkit-border-radius: 11px;
     border-radius: 11px;
     padding: 0.5em 1em;
@@ -811,6 +825,26 @@ input[type=button],
     border: 1px solid #ddd;
     cursor: pointer;
     outline: none;
+}
+
+.inline-group ul.tools a.add,
+.inline-group div.add-row a,
+.inline-group .tabular tr.add-row td a {
+    display: inline-block;
+    float: right;
+}
+
+.inline-group div.add-row,
+.inline-group .tabular tr.add-row td {
+    background: #f9f9f9;
+    border-bottom: 0;
+    overflow: hidden;
+}
+
+.inline-group ul.tools a.add,
+.inline-group div.add-row a,
+.inline-group .tabular tr.add-row td a {
+    background: white url('../../admin/img/nav-bg.gif') bottom repeat-x;
 }
 
 
