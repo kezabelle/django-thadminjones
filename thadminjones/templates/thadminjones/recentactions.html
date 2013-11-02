@@ -8,12 +8,17 @@
             {% for entry in admin_log %}
             <li class="thadminjones--recentactions--model">
                 <a href="{{ entry.get_absolute_url }}" class="thadminjones--recentactions--model--link {% if entry.content_type %}thadminjones--recentactions--contenttype--{% trans entry.content_type.name %}{% endif %}" title="{{ entry.change_message }}">
+                    {% if entry.is_addition %}
+                    {% trans 'Add' %}
+                    {% elif entry.is_change %}
+                    {% trans 'Change' %}
+                    {% endif %}
                     {% if entry.content_type %}
                     {% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}:
                     {% else %}
                     {% trans 'Unknown content' %}:
                     {% endif %}
-                    {{ entry.object_repr }}
+                    {{ entry.object_repr|default:'&hellip;' }}
                 </a>
             </li>
             {% endfor %}
