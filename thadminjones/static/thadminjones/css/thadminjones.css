@@ -64,6 +64,23 @@ a:link, a:visited {
     color: #21759b;
 }
 
+body.logout #container {
+    width: 28em;
+    min-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+body.logout #footer,
+body.logout br.clear {
+    display: none;
+}
+
+body.logout #content {
+    margin: 0;
+}
+
 body.login {
     background-color: #fbfbfb;
 }
@@ -74,7 +91,8 @@ body.login {
     /*padding: 0;*/
 /*}*/
 
-body.login #container {
+body.login #container,
+body.logout #container {
     padding: 26px 24px 24px;
     font-weight: normal;
     background: #fff;
@@ -782,6 +800,7 @@ input[type=button],
     color: #888;
     border: 1px solid #ddd;
     cursor: pointer;
+    outline: none;
 }
 
 
