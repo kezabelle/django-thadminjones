@@ -489,6 +489,7 @@ body.popup #content {
     font-weight: normal;
     font-size: 1.9em;
     padding: 1em 0 0 0;
+    margin-bottom: 0.435em;
 }
 
 body.popup #content h1 {
@@ -969,3 +970,14 @@ fieldset.collapsed {
     border-left-color: #ccc;
 }
 
+/* is more like bootstrap ... */
+.errornote {
+    background: #fdf7f7;
+    border: 0;
+    border-left: 3px solid #eed3d7;
+    padding: 1em;
+    color: #b94a48;
+    font-size: 1.4em;
+    margin-bottom: 0.833em;
+    font-weight: bold;
+}
