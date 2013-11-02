@@ -11,3 +11,10 @@ div#sitemap {
     background: #f4f4f4;
 }
 
+#page_form ul.plugin-list .drag {}
+
+#page_form ul.plugin-list .text {}
+
+#page_form ul.plugin-list span.delete {}
+
+#page_states {}
