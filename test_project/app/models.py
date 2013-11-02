@@ -49,3 +49,9 @@ class ReducedPermissions(TestModelFields):
         proxy = True
         verbose_name = 'reduced permission'
         verbose_name_plural = 'reduced permissions'
+
+
+class TestInlineModel(Model):
+    fk = ForeignKey(TestModelFields)
+    m2m = ManyToManyField('auth.User')
+    yesno = BooleanField()

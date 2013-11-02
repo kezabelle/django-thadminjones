@@ -1,11 +1,25 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from .models import TestModelFields, ReducedPermissions
+from .models import TestModelFields, ReducedPermissions, TestInlineModel
 from thadminjones.admin import SupportsQuickAdd
 
 
+class TestStackedInline(admin.StackedInline):
+    model = TestInlineModel
+    extra = 1
+
+
+class TestTabularInline(admin.TabularInline):
+    model = TestInlineModel
+    extra = 1
+    max_num = 2
+
+
 class TestModelAdmin(SupportsQuickAdd, admin.ModelAdmin):
-    pass
+    inlines = [
+        TestStackedInline,
+        TestTabularInline,
+    ]
 admin.site.register(TestModelFields, TestModelAdmin)
 
 
