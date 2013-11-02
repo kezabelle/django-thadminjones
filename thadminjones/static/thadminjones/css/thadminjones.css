@@ -650,7 +650,7 @@ fieldset.collapsed h2,
 /* OH GOD WHY! */
 .object-tools {
     font-family: 'Lucida Grande', Verdana, Arial, sans-serif;
-    margin-top: -2.9em;
+    margin-top: -3.2em;
     font-size: 11px;
     font-weight: normal;
 }
@@ -734,15 +734,16 @@ a.deletelink:link, a.deletelink:visited {
 }
 
 .submit-row {
-    position: fixed;
+    /*position: fixed;*/
     bottom: 0;
     left: 165px;
     right: 15px;
     background: white;
-    padding: 0.75em 0;
+    /*padding: 0.75em 0;*/
+    padding: 0;
     margin: 0;
     border: 0;
-    border-top: 1px solid #efefef;
+    /*border-top: 1px solid #efefef;*/
 }
 
 .form-row:last-child {
