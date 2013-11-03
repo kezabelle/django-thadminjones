@@ -42,3 +42,5 @@ output/*/index.html
 docs/_build
 test_project/db.sqlite
 test
+AUTHORS.html
+README.html
