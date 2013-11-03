@@ -68,7 +68,7 @@ inherit from the ``SupportsQuickAdd`` mixin class::
   class MyModelAdmin(SupportsQuickAdd, ModelAdmin):
       pass
 
-or you can define `has_quick_add_permission` and `get_quick_add_url`
+or you can define ``has_quick_add_permission`` and ``get_quick_add_url`` methods
 on your existing ``ModelAdmin``. See the implementation of the mixin
 class for implementation info.
 
@@ -84,8 +84,17 @@ management command, and are discovered by a template tag in the
 bundled `admin/base_site.html` which looks for certain filenames
 using the AppDirectories `staticfiles`_ finder.
 
+By way of example, take the minor changes made to `django-treeadmin`_:
+
+* The ``<app.name>`` that is used in ``INSTALLED_APPS`` is
+  ``thadminjones.contrib.treeadmin``
+* The CSS is in ``static/treeadmin/css`` - the ``<last.part.of.app.name>``; only
+  the last part of the dot path is used, allowing us to provide tweaks to third
+  party packages without reaching out and asking them to bundle said tweaks.
+
 .. _collectstatic: https://docs.djangoproject.com/en/stable/ref/contrib/staticfiles/#django-admin-collectstatic
 .. _staticfiles: https://docs.djangoproject.com/en/stable/ref/contrib/staticfiles/
+.. _django-treeadmin: https://github.com/piquadrat/django-treeadmin
 
 About the name
 --------------
@@ -118,7 +127,26 @@ as off the top of my head I can think of:
 Screenshots
 -----------
 
-* TODO :(
+The following images are vaguely representative of the theme, though there
+may be discrepencies because taking screenshots every time I fix or change
+something is likely to be tiresome. They've been scrubbed by `ImageOptim`_ too...
+
+.. _ImageOptim: http://imageoptim.com/
+
+.. image:: https://raw.github.com/kezabelle/django-thadminjones/tree/master/docs/_static/login.png
+    :alt: Login
+
+.. image:: https://raw.github.com/kezabelle/django-thadminjones/tree/master/docs/_static/index.png
+    :alt: AdminSite index
+
+.. image:: https://raw.github.com/kezabelle/django-thadminjones/tree/master/docs/_static/changelist.png
+    :alt: Listing users in the test project
+
+.. image:: https://raw.github.com/kezabelle/django-thadminjones/tree/master/docs/_static/changeform.png
+    :alt: Editing a user in the test project
+
+.. image:: https://raw.github.com/kezabelle/django-thadminjones/tree/master/docs/_static/logout.png
+    :alt: Logout screen
 
 Contributing
 ------------
