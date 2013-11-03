@@ -120,6 +120,26 @@ Screenshots
 
 * TODO :(
 
+Contributing
+------------
+
+The quickest way to get up and running to contribute is::
+
+    $ mkvirtualenv thadmin
+    $ git clone git@github.com:kezabelle/django-thadminjones.git
+    $ python django-thadminjones/setup.py develop
+
+Which will install all the requirements for running the ``test_project``,
+thereafter, you can spin up a clean-room project accessible at 127.0.0.1:8080
+by doing::
+
+    $ python django-thadminjones/test_project/run.py
+
+Tickets can be opened on the `django-thadminjones GitHub repository`_ - if you're
+reporting a visual bug, please try to include a screenshot illustrating the
+problem, or a pull request for the ``test_project`` to demonstrate it.
+
+.. _django-thadminjones GitHub repository: https://github.com/kezabelle/django-thadminjones/issues
 
 .. _Django: https://djangoproject.com/
 .. _admin: https://docs.djangoproject.com/en/stable/ref/contrib/admin/
