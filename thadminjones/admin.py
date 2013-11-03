@@ -4,6 +4,11 @@ from django.core.urlresolvers import NoReverseMatch, reverse
 
 
 class SupportsQuickAdd(object):
+    """
+    A small mixin class to enable certain ModelAdmins to appear in a dropdown
+    of links to add views for individual models; useful mostly to provide
+    access site-wide to higher priority models [eg: in a CMS-esque fashion]
+    """
 
     def has_quick_add_permission(self, request):
         return self.has_add_permission(request)
