@@ -133,19 +133,19 @@ something is likely to be tiresome. They've been scrubbed by `ImageOptim`_ too..
 
 .. _ImageOptim: http://imageoptim.com/
 
-.. image:: https://raw.github.com/kezabelle/django-thadminjones/tree/master/docs/_static/login.png
+.. image:: https://raw.github.com/kezabelle/django-thadminjones/master/docs/_static/login.png
     :alt: Login
 
-.. image:: https://raw.github.com/kezabelle/django-thadminjones/tree/master/docs/_static/index.png
+.. image:: https://raw.github.com/kezabelle/django-thadminjones/master/docs/_static/index.png
     :alt: AdminSite index
 
-.. image:: https://raw.github.com/kezabelle/django-thadminjones/tree/master/docs/_static/changelist.png
+.. image:: https://raw.github.com/kezabelle/django-thadminjones/master/docs/_static/changelist.png
     :alt: Listing users in the test project
 
-.. image:: https://raw.github.com/kezabelle/django-thadminjones/tree/master/docs/_static/changeform.png
+.. image:: https://raw.github.com/kezabelle/django-thadminjones/master/docs/_static/changeform.png
     :alt: Editing a user in the test project
 
-.. image:: https://raw.github.com/kezabelle/django-thadminjones/tree/master/docs/_static/logout.png
+.. image:: https://raw.github.com/kezabelle/django-thadminjones/master/docs/_static/logout.png
     :alt: Logout screen
 
 Contributing
