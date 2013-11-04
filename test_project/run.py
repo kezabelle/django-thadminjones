@@ -29,6 +29,7 @@ d(
         "django.contrib.sites",
         "django.contrib.messages",
         "django.contrib.admin",
+        "admin_honeypot",
         "treeadmin",
         "cms",
         "mptt",
@@ -83,6 +84,8 @@ d(
     MEDIA_URL='/m/',
     admin="^",
 )
+from django.conf.urls import include
+d.add_view(r'^honeypot/', include('admin_honeypot.urls'))
 
 from django.template.loader import add_to_builtins
 add_to_builtins('django_pdb.templatetags.pdb')

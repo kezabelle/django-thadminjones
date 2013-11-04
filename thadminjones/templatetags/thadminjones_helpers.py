@@ -10,6 +10,7 @@ from django.contrib.staticfiles.finders import AppDirectoriesFinder
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.urlresolvers import resolve, reverse
 from django.utils.encoding import force_unicode
+from django.conf import settings
 
 
 register = template.Library()
@@ -46,19 +47,64 @@ class FindMineralCSS(AsTag):
 register.tag(FindMineralCSS)
 
 
+class AdminHelper(object):
+    def __init__(self, request):
+        self.request = request
+
+    def get_namespace(self):
+        current_view = resolve(self.request.path)
+        namespace = getattr(current_view, 'app_name', None)
+        if namespace is None:
+            namespace = 'admin'
+        return namespace
+
+    def get_index_url(self):
+        return reverse('%s:index' % self.get_namespace())
+
+    def get_index_view(self):
+        return resolve(self.get_index_url())
+
+
+class MaybeFail(object):
+    """
+    collect various reasons to fail rendering ...
+    """
+    def __init__(self, request, context):
+        self.request = request
+        self.context = context
+
+    def __call__(self):
+        return not all([
+            self.valid_user(),
+            self.authenticated(),
+            self.isnt_honeypot(),
+        ])
+
+    def valid_user(self):
+        return hasattr(self.request, 'user')
+
+    def authenticated(self):
+        return self.request.user.is_authenticated()
+
+    def isnt_honeypot(self):
+        if 'admin_honeypot' in settings.INSTALLED_APPS:
+            from admin_honeypot.forms import HoneypotLoginForm
+            if ('form' in self.context
+                    and isinstance(self.context['form'], HoneypotLoginForm)):
+                return False
+        return True
+
+
 class AppList(InclusionTag):
     name = 'thadminjones_applist'
     template = 'thadminjones/applist.html'
 
     def get_context(self, context, **kwargs):
         request = context['request']
-        if not hasattr(request, 'user'):
+        if MaybeFail(request, context)():
             return {}
-        if not request.user.is_authenticated():
-            return {}
-        current_view = resolve(request.path)
-        root_url = reverse('%s:index' % current_view.app_name)
-        index_view = resolve(root_url)
+
+        index_view = AdminHelper(request).get_index_view()
         template_response = index_view.func(request)
         return {
             'apps': template_response.context_data['app_list'],
@@ -100,13 +146,9 @@ class QuickAddList(InclusionTag):
 
     def get_context(self, context, **kwargs):
         request = context['request']
-        if not hasattr(request, 'user'):
+        if MaybeFail(request, context)():
             return {}
-        if not request.user.is_authenticated():
-            return {}
-        current_view = resolve(request.path)
-        root_url = reverse('%s:index' % current_view.app_name)
-        index_view = resolve(root_url)
+        index_view = AdminHelper(request).get_index_view()
         admin_site = index_view.func.func_closure[0].cell_contents
         models = sorted(self.get_models(request, admin_site),
                         key=lambda dict_: force_unicode(dict_['name']))
@@ -129,13 +171,10 @@ class RecentActions(InclusionTag):
 
     def get_context(self, context, maxnum, **kwargs):
         request = context['request']
-        if not hasattr(request, 'user'):
-            return {}
-        if not request.user.is_authenticated():
+        if MaybeFail(request, context)():
             return {}
 
-        current_view = resolve(request.path)
-        root_url = reverse('%s:index' % current_view.app_name)
+        root_url = AdminHelper(request).get_index_url()
 
         def get_log_entries(user_id, maxnum, admin_root):
             """

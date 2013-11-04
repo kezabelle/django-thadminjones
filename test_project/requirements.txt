@@ -14,3 +14,4 @@ django-treeadmin==0.4.1
 django-debug-toolbar==0.10.2
 django-pdb==0.3.2
 bumpversion==0.3.5
+django-admin-honeypot==0.2.5
