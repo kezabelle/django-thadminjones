@@ -17,7 +17,7 @@
 
 {% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
 
-{% block bodyclass %}{{ block.super }} {{ request.path|slugify }}{% endblock %}
+{% block bodyclass %}{{ block.super }} {% thadminjones_slugify %} {% endblock %}
 
 
 {% block branding %}

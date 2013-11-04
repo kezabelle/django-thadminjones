@@ -2,7 +2,7 @@
 import logging
 import re
 from classytags.arguments import Argument, IntegerArgument
-from classytags.core import Options
+from classytags.core import Options, Tag
 from classytags.helpers import AsTag, InclusionTag
 from django import template
 from django.contrib.admin.models import LogEntry, DELETION
@@ -11,6 +11,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.urlresolvers import resolve, reverse
 from django.utils.encoding import force_unicode
 from django.conf import settings
+from django.utils.text import slugify
 
 
 register = template.Library()
@@ -195,3 +196,14 @@ class RecentActions(InclusionTag):
             'admin_log': list(entries),
         }
 register.tag(RecentActions)
+
+
+class SlugifyForAdmin(Tag):
+    name = 'thadminjones_slugify'
+
+    def render_tag(self, context, **kwargs):
+        request = context['request']
+        path = unicode(request.path)
+        root_url = AdminHelper(request).get_index_url()
+        return slugify(path.replace(root_url, '').strip('/'))
+register.tag(SlugifyForAdmin)
