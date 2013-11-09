@@ -108,6 +108,8 @@ as off the top of my head I can think of:
 * `Armstrong`_ (`Louis Armstrong`_)
 * `Ellington`_ (`Duke Ellington`_)
 * `Mingus`_ (`Charles Mingus`_)
+* `Satchmo`_ (`Louis_Armstrong`_)
+* `Oscar`_ (`Oscar Peterson`_)
 * (maybe) `django-bakery`_ (`Chet Baker`_)
 
 .. _Thad Jones: http://en.wikipedia.org/wiki/Thad_Jones
@@ -121,6 +123,9 @@ as off the top of my head I can think of:
 .. _Duke Ellington: http://en.wikipedia.org/wiki/Duke_Ellington
 .. _Mingus: https://github.com/montylounge/django-mingus
 .. _Charles Mingus: http://en.wikipedia.org/wiki/Charles_Mingus
+.. _Satchmo: http://www.satchmoproject.com/
+.. _Oscar: http://tangentlabs.github.io/django-oscar/
+.. _Oscar Peterson: http://en.wikipedia.org/wiki/Oscar_Peterson
 .. _django-bakery: https://github.com/datadesk/django-bakery
 .. _Chet Baker: http://en.wikipedia.org/wiki/Chet_Baker
 
