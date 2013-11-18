@@ -180,14 +180,19 @@ class RecentActions(InclusionTag):
         def get_log_entries(user_id, maxnum, admin_root):
             """
             This exists because LogEntry has a stupid bloody get_absolute_url()
+            in < 1.6
             """
             entries = (LogEntry.objects.filter(user__id__exact=user_id)
                        .exclude(action_flag=DELETION)
                        .select_related('content_type', 'user'))
             for entry in entries[:maxnum]:
-                real_url = '/%s/%s/' % (admin_root, entry.get_admin_url())
-                entry.get_absolute_url = re.sub(pattern=multiple_slashes_re,
-                                                repl='/', string=real_url)
+                existing_url = entry.get_admin_url()
+                if not existing_url.startswith(admin_root):
+                    real_url = '/%s/%s/' % (admin_root, existing_url)
+                    entry.get_absolute_url = re.sub(pattern=multiple_slashes_re,
+                                                    repl='/', string=real_url)
+                else:
+                    entry.get_absolute_url = existing_url
                 yield entry
 
         entries = get_log_entries(user_id=request.user.pk, maxnum=maxnum,
